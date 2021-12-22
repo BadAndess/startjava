@@ -15,23 +15,23 @@ public class CalculatorTest {
         Scanner scanner = new Scanner(System.in);
         String option = "yes";
 
-        while (option.equals("yes")) {
-            System.out.println("Enter first number ");
-            calculator.setNumber1(scanner.nextInt());
+        String expression = scanner.nextLine();
+        String[] str = expression.split(" ");
+        for (String number : str) {
+            System.out.println(number);
 
-            System.out.println("Enter operation ");
-            calculator.setSign(scanner.next().charAt(0));
+            while (option.equals("yes")) {
+                System.out.println("Enter a mathematical expression ");
 
-            System.out.println("Enter second number");
-            calculator.setNumber2(scanner.nextInt());
+                calculator.calc();
 
-            calculator.calc();
-
-            scanner.nextLine();
-            do {
-                System.out.println("Want to continue the calculations? [yes/no]: ");
-                option = scanner.nextLine();
-            } while (!option.equals("yes") && !option.equals("no"));
+                scanner.nextLine();
+                do {
+                    System.out.println("Want to continue the calculations? [yes/no]: ");
+                    option = scanner.nextLine();
+                } while (!option.equals("yes") && !option.equals("no"));
+            }
         }
     }
 }
+
