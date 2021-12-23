@@ -1,6 +1,7 @@
 package com.startjava.lesson_4.calculator;
 
 import java.util.Scanner;
+
 /**
  * Модифицируйте программу Калькулятор:
  * используйте следующий формат ввода (пример): Введите математическое выражение: 2 ^ 10
@@ -15,23 +16,17 @@ public class CalculatorTest {
         Scanner scanner = new Scanner(System.in);
         String option = "yes";
 
-        String expression = scanner.nextLine();
-        String[] str = expression.split(" ");
-        for (String number : str) {
-            System.out.println(number);
+        while (option.equals("yes")) {
+            System.out.println("Enter a mathematical expression separated by a space ");
 
-            while (option.equals("yes")) {
-                System.out.println("Enter a mathematical expression ");
+            calculator.calc();
 
-                calculator.calc();
-
-                scanner.nextLine();
-                do {
-                    System.out.println("Want to continue the calculations? [yes/no]: ");
-                    option = scanner.nextLine();
-                } while (!option.equals("yes") && !option.equals("no"));
-            }
+            do {
+                System.out.println("Want to continue the calculations? [yes/no]: ");
+                option = scanner.nextLine();
+            } while (!option.equals("yes") && !option.equals("no"));
         }
     }
 }
+
 
