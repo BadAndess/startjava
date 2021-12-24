@@ -1,36 +1,26 @@
 package com.startjava.lesson_4.calculator;
 
-import java.util.Scanner;
-
 public class Calculator {
 
-    Scanner scanner = new Scanner(System.in);
-
-    public void calc() {
-        String expression = scanner.nextLine();
+    public int calc(String expression) {
         String[] str = expression.split(" ");
-
         int a = Integer.parseInt(str[0]);
         int b = Integer.parseInt(str[2]);
 
         switch (str[1]) {
             case "+":
-                System.out.println(Math.abs(a + b));
-                break;
+                return Math.abs(a + b);
             case "-":
-                System.out.println(Math.abs(a - b));
-                break;
+                return Math.abs(a - b);
             case "/":
-                System.out.println(Math.abs(a / b));
-                break;
+                return Math.abs(a / b);
             case "*":
-                System.out.println(Math.abs(a * b));
-                break;
+                return Math.abs(a * b);
             case "^":
-                System.out.println(Math.pow(a, b));
-                break;
+                return (int) Math.pow(a, b);
             default:
                 System.out.println("Incorrect sign ");
         }
+        return 0;
     }
 }

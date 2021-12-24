@@ -4,11 +4,16 @@ import java.util.Scanner;
 
 /**
  * Модифицируйте программу Калькулятор:
- * используйте следующий формат ввода (пример): Введите математическое выражение: 2 ^ 10
- * введенное выражение храните в массиве. В этом поможет метод String.split()
- * для преобразования чисел выражения из String в int используйте метод Integer.parseInt()
- * замените методами класса Math, какие только сможете найти, ваши реализации вычислений
- * метод calculate() должен возвращать результат вычисления. Выводите его в CalculatorTest
+ * используйте следующий формат ввода (пример):
+ * Введите математическое выражение: 2 ^ 10
+ * введенное выражение храните в массиве.
+ * В этом поможет метод String.split()
+ * для преобразования чисел выражения из String в int
+ * используйте метод Integer.parseInt()
+ * замените методами класса Math, какие только сможете найти,
+ * ваши реализации вычислений
+ * метод calculate() должен возвращать результат вычисления.
+ * Выводите его в CalculatorTest
  */
 public class CalculatorTest {
     public static void main(String[] args) {
@@ -18,8 +23,8 @@ public class CalculatorTest {
 
         while (option.equals("yes")) {
             System.out.println("Enter a mathematical expression separated by a space ");
-
-            calculator.calc();
+            String expression = scanner.nextLine();
+            System.out.println(expression + " = " + calculator.calc(expression));
 
             do {
                 System.out.println("Want to continue the calculations? [yes/no]: ");
