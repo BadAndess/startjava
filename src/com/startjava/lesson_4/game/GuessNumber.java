@@ -34,6 +34,7 @@ public class GuessNumber {
                 break;
             }
         }
+        
         printNumbers(player1);
         printNumbers(player2);
     }
