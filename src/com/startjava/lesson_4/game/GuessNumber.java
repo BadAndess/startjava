@@ -17,29 +17,33 @@ public class GuessNumber {
     }
 
     public void start() {
+        init();
+
+        System.out.println("У каждого игрока по 10 попыток ");
+        System.out.println("Я загадал число от 0 до 100 ");
+
+        for (int i = 0; i < 10; i++) {
+            if (makeMoves(player1)) {
+                break;
+            }
+            if (makeMoves(player2)) {
+                break;
+            }
+        }
+
+        printNumbers(player1);
+        printNumbers(player2);
+    }
+
+    private void init() {
         player1.setAttemptCounter(0);
         player2.setAttemptCounter(0);
         player1.fillArray();
         player2.fillArray();
         guessedNumber = random.nextInt(101);
-
-        System.out.println("У каждого игрока по 10 попыток ");
-        System.out.println("Я загадал число от 0 до 100 ");
-        System.out.println(guessedNumber);
-
-        for (int i = 0; i < 10; i++) {
-            if (moves(player1)) {
-                break;
-            } else if (moves(player2)) {
-                break;
-            }
-        }
-        
-        printNumbers(player1);
-        printNumbers(player2);
     }
 
-    private boolean moves(Player player) {
+    private boolean makeMoves(Player player) {
         System.out.println(player.getName() + " введите свое число ");
         player.setNumber(scanner.nextInt());
         player.setAttemptCounter(player.getAttemptCounter() + 1);
@@ -58,11 +62,10 @@ public class GuessNumber {
             System.out.println("Игрок " + player.getName() + " угадал число "
                     + guessedNumber + " с " + player.getAttemptCounter() + " попытки ");
             return true;
-        } else if (player.getNumber() > guessedNumber) {
-            System.out.println("Данное число больше того, что я загадал ");
-        } else if (player.getNumber() < guessedNumber) {
-            System.out.println("Данное число меньше того, что я загадал ");
         }
+        String moreOrLess = (player.getNumber() > guessedNumber) ? "Данное число больше того, что я загадал "
+                : "Данное число меньше того, что я загадал ";
+        System.out.println(moreOrLess);
         return false;
     }
 
