@@ -20,7 +20,7 @@ public class GuessNumber {
         init();
 
         System.out.println("У каждого игрока по 10 попыток ");
-        System.out.println("Я загадал число от 0 до 100 ");
+        System.out.println("Я - это компьютер, загадал число от 0 до 100 ");
 
         for (int i = 0; i < 10; i++) {
             if (makeMoves(player1)) {
