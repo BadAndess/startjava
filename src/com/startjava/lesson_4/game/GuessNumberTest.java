@@ -38,6 +38,7 @@ public class GuessNumberTest {
         Scanner scanner = new Scanner(System.in);
         String option = "yes";
 
+        System.out.println("Игрок 1 введите имя : ");
         Player player1 = new Player(scanner.nextLine());
 
         System.out.println("Игрок 2 введите имя : ");

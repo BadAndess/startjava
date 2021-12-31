@@ -22,15 +22,11 @@ public class GuessNumber {
         System.out.println("У каждого игрока по 10 попыток ");
         System.out.println("Я - это компьютер, загадал число от 0 до 100 ");
 
-        for (int i = 0; i < 10; i++) {
-            if (makeMoves(player1)) {
-                break;
-            }
-            if (makeMoves(player2)) {
-                break;
+       for (int i = 0; i < 10; i++) {
+            if (makeMoves(player1) || makeMoves(player2)) {
+               break;
             }
         }
-
         printNumbers(player1);
         printNumbers(player2);
     }
@@ -38,8 +34,8 @@ public class GuessNumber {
     private void init() {
         player1.setAttemptCounter(0);
         player2.setAttemptCounter(0);
-        player1.fillArray();
-        player2.fillArray();
+        player1.clearNumbers();
+        player2.clearNumbers();
         guessedNumber = random.nextInt(101);
     }
 
@@ -63,14 +59,14 @@ public class GuessNumber {
                     + guessedNumber + " с " + player.getAttemptCounter() + " попытки ");
             return true;
         }
-        String moreOrLess = (player.getNumber() > guessedNumber) ? "Данное число больше того, что я загадал "
-                : "Данное число меньше того, что я загадал ";
-        System.out.println(moreOrLess);
+        String moreOrLess = (player.getNumber() > guessedNumber) ? " больше "
+                : " меньше ";
+        System.out.println("Данное число " + moreOrLess + " того, что я загадал");
         return false;
     }
 
     private void printNumbers(Player player) {
-        for (int number : player.getArrayNumbers()) {
+        for (int number : player.getAllNumbers()) {
             System.out.print(number + " ");
         }
         System.out.println();
